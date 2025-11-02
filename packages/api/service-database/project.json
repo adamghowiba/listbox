@@ -1,0 +1,9 @@
+{
+  "name": "service-database",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/api/service-database/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project service-database --web",
+  "targets": {}
+}

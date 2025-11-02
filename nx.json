@@ -9,7 +9,6 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "68aa274ad0c0d77f6fb9e359",
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
@@ -23,7 +22,8 @@
           "buildDepsName": "build-deps",
           "watchDepsName": "watch-deps"
         }
-      }
+      },
+      "exclude": ["packages/api/service-database/*"]
     },
     {
       "plugin": "@nx/webpack/plugin",
@@ -47,6 +47,15 @@
       "options": {
         "buildTarget": "docker:build",
         "runTarget": "docker:run"
+      }
+    },
+    {
+      "plugin": "@nx/js/typescript",
+      "include": ["packages/api/service-database/*"],
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        }
       }
     }
   ]

@@ -20,10 +20,26 @@ model User {
   @@map("user")
 }
 
+enum FieldType {
+  TEXT
+  NUMBER
+  BOOLEAN
+  DATE
+  SELECT
+  MULTISELECT
+  RATING
+}
+
 model ListField {
-  id      String @id @default(cuid())
-  list    List   @relation(fields: [list_id], references: [id])
-  list_id String
+  id           String    @id @default(cuid())
+  name         String
+  description  String?
+  type         FieldType
+  field_config Json?     @default("{}")
+  list         List      @relation(fields: [list_id], references: [id])
+  list_id      String
+
+  @@map("list_field")
 }
 
 model List {
@@ -52,5 +68,6 @@ model Item {
   updated_at  DateTime @updatedAt
 
   @@unique([name, list_id])
+  @@index([properties], name: "item_properties_idx", type: Gin)
   @@map("item")
 }
