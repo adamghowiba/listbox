@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../packages/api/service-database"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ]

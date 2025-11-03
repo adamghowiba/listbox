@@ -1,1 +1,2 @@
-export {DatabaseModule as ServiceDatabaseModule} from './lib/database.module'
+export { DatabaseModule } from './lib/database.module';
+export { PrismaService } from './lib/prisma.service';
