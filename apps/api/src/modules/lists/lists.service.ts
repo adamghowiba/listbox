@@ -11,7 +11,12 @@ export class ListsService {
   async create(createListDto: CreateListDto): Promise<ListEntity> {
     const list = await this.prisma.list.create({
       data: {
-        user_id: '',
+        user_id: 'cmhifucq000008ok33vezykh1',
+        fields: {
+          createMany: {
+            data: createListDto.fields,
+          }
+        },
         ...createListDto,
       },
     });

@@ -31,13 +31,15 @@ enum FieldType {
 }
 
 model ListField {
-  id           String    @id @default(cuid())
-  name         String
-  description  String?
-  type         FieldType
-  field_config Json?     @default("{}")
-  list         List      @relation(fields: [list_id], references: [id])
-  list_id      String
+  id             String    @id @default(cuid())
+  name           String
+  description    String?
+  type           FieldType
+  select_options String[]
+  required       Boolean   @default(false)
+  field_config   Json?     @default("{}")
+  list           List      @relation(fields: [list_id], references: [id])
+  list_id        String
 
   @@map("list_field")
 }
